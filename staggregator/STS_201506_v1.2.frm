@@ -8,9 +8,9 @@ Begin VB.Form STS
    LinkTopic       =   "Form1"
    ScaleHeight     =   4905
    ScaleWidth      =   7425
-   StartUpPosition =   3  'Windows ±âº»°ª
+   StartUpPosition =   3  'Windows ê¸°ë³¸ê°’
    Begin VB.CommandButton Command6 
-      Caption         =   "Å×¸¶Á¾¸ñ"
+      Caption         =   "í…Œë§ˆì¢…ëª©"
       Height          =   495
       Index           =   0
       Left            =   5280
@@ -27,7 +27,7 @@ Begin VB.Form STS
       Width           =   4695
    End
    Begin VB.CommandButton Command4 
-      Caption         =   "Á¾¸ñ(ÅõÀÚÁÖÃ¼)"
+      Caption         =   "ì¢…ëª©(íˆ¬ìì£¼ì²´)"
       Height          =   495
       Index           =   0
       Left            =   5280
@@ -36,7 +36,7 @@ Begin VB.Form STS
       Width           =   2055
    End
    Begin VB.CommandButton Command7 
-      Caption         =   "ÀÏ°ı¹èÄ¡"
+      Caption         =   "ì¼ê´„ë°°ì¹˜"
       Height          =   375
       Index           =   0
       Left            =   5280
@@ -51,7 +51,7 @@ Begin VB.Form STS
    End
    Begin VB.CommandButton Command1 
       BackColor       =   &H00FFFFFF&
-      Caption         =   "Á¾¸ñ/Å×¸¶ÄÚµå"
+      Caption         =   "ì¢…ëª©/í…Œë§ˆì½”ë“œ"
       Height          =   495
       Index           =   0
       Left            =   5280
@@ -61,7 +61,7 @@ Begin VB.Form STS
       Width           =   2055
    End
    Begin VB.CommandButton Command3 
-      Caption         =   "Á¾¸ñ(°¡°İ)"
+      Caption         =   "ì¢…ëª©(ê°€ê²©)"
       Height          =   495
       Index           =   0
       Left            =   5280
@@ -70,7 +70,7 @@ Begin VB.Form STS
       Width           =   2055
    End
    Begin VB.CommandButton Command2 
-      Caption         =   "Á¾¸ñ(´çÀÏÀç¹«)"
+      Caption         =   "ì¢…ëª©(ë‹¹ì¼ì¬ë¬´)"
       Height          =   495
       Index           =   0
       Left            =   5280
@@ -79,7 +79,7 @@ Begin VB.Form STS
       Width           =   2055
    End
    Begin VB.CommandButton Command5 
-      Caption         =   "¾÷Á¾(°¡°İ,ÅõÀÚÁÖÃ¼)"
+      Caption         =   "ì—…ì¢…(ê°€ê²©,íˆ¬ìì£¼ì²´)"
       Height          =   495
       Index           =   0
       Left            =   5280
@@ -120,14 +120,14 @@ Sub DB_Open()
     conn.ConnectionString = "DRIVER={MySQL ODBC 3.51 Driver};" + _
                               "SERVER=" + _
                               Text1.Text + _
-                              "UID=root;PWD=jini7476; OPTION=16427;" + _
+                              "UID=root;PWD=; OPTION=16427;" + _
                               "STMT= set names euckr"
     conn.ConnectionTimeout = 30
     conn.Mode = adModeReadWrite
     
     conn.Open
     If conn.State = adStateClosed Then
-        MsgBox ("DBÁ¢¼Ó ½ÇÆĞ")
+        MsgBox ("DBì ‘ì† ì‹¤íŒ¨")
         conn.Close
     End If
 End Sub
@@ -164,7 +164,7 @@ End Sub
 
 
 '----------------------------------------------
-'        ¹èÄ¡ Å¸ÀÌ¸Ó
+'        ë°°ì¹˜ íƒ€ì´ë¨¸
 '----------------------------------------------
 Private Sub Timer1_Timer()
     Static bStart As Boolean
@@ -183,13 +183,13 @@ Private Sub Timer1_Timer()
 End Sub
 
 '----------------------------------------------
-'        ±âº»ÄÚµåÁ¤º¸ °¡Á®¿À±â
+'        ê¸°ë³¸ì½”ë“œì •ë³´ ê°€ì ¸ì˜¤ê¸°
 '----------------------------------------------
 Private Sub Command1_Click(Index As Integer)
            
     Select Case (Index)
         '----------------------------------------------
-        'Àü Á¾¸ñÄÚµå, ¸í °¡Á®¿À±â ok
+        'ì „ ì¢…ëª©ì½”ë“œ, ëª… ê°€ì ¸ì˜¤ê¸° ok
         '----------------------------------------------
         
         Case 0
@@ -212,7 +212,7 @@ End Sub
 Private Sub Command2_Click(Index As Integer)
     Select Case (Index)
         '----------------------------------------------
-        'Á¾¸ñ Fundamental °¡Á®¿À±â - ÀÏÀÚÁ¤º¸ ¾øÀ½.
+        'ì¢…ëª© Fundamental ê°€ì ¸ì˜¤ê¸° - ì¼ìì •ë³´ ì—†ìŒ.
         '----------------------------------------------
         Case 0
             Call Company_f
@@ -227,8 +227,8 @@ End Sub
 Private Sub Command3_Click(Index As Integer)
     Select Case (Index)
         '----------------------------------------------
-        'Á¾¸ñÁÖ°¡  OK
-        'Á¾¸ñ ÅõÀÚÁÖÃ¼ OK
+        'ì¢…ëª©ì£¼ê°€  OK
+        'ì¢…ëª© íˆ¬ìì£¼ì²´ OK
         '----------------------------------------------
         Case 0
                 Call Company_p
@@ -246,8 +246,8 @@ Private Sub Command4_Click(Index As Integer)
     
     Select Case (Index)
         '----------------------------------------------
-        '¾÷Á¾ÁÖ°¡ (StockChart)
-        'ÅõÀÚÁÖÃ¼º°
+        'ì—…ì¢…ì£¼ê°€ (StockChart)
+        'íˆ¬ìì£¼ì²´ë³„
         '----------------------------------------------
         Case 0
             Call Company_i
@@ -312,7 +312,7 @@ End Sub
 
 
 Sub Company_p()
-            Call Log("-- Á¾¸ñ ÁÖ°¡¼öÁı½ÃÀÛ")
+            Call Log("-- ì¢…ëª© ì£¼ê°€ìˆ˜ì§‘ì‹œì‘")
             Call DB_Open
             
             Dim arrList(3000) 'As Variant
@@ -343,11 +343,11 @@ Sub Company_p()
                 Call Company_Price(codes)
                End If
             Next
-            Call Log("-- Á¾¸ñ ÁÖ°¡¼öÁıÁ¾·á")
+            Call Log("-- ì¢…ëª© ì£¼ê°€ìˆ˜ì§‘ì¢…ë£Œ")
 End Sub
 
 Sub Company_i()
-            Call Log("-- Á¾¸ñ ÅõÀÚÀÚ¼öÁı½ÃÀÛ")
+            Call Log("-- ì¢…ëª© íˆ¬ìììˆ˜ì§‘ì‹œì‘")
             Call DB_Open
             
             Dim arrList(3000) 'As Variant
@@ -378,12 +378,12 @@ Sub Company_i()
                 Call Company_Investors(codes)
                End If
             Next
-            Call Log("-- Á¾¸ñ ÅõÀÚÀÚ¼öÁıÁ¾·á")
+            Call Log("-- ì¢…ëª© íˆ¬ìììˆ˜ì§‘ì¢…ë£Œ")
 End Sub
 
 
 Sub Company_f()
-            Call Log("-- Á¾¸ñ Àç¹«¼öÁı½ÃÀÛ")
+            Call Log("-- ì¢…ëª© ì¬ë¬´ìˆ˜ì§‘ì‹œì‘")
             Call DB_Open
             
             Dim arrList(3000) 'As Variant
@@ -414,38 +414,38 @@ Sub Company_f()
                     Call Company_Fundamental(codes)
                End If
             Next
-            Call Log("-- Á¾¸ñ Àç¹«¼öÁıÁ¾·á")
+            Call Log("-- ì¢…ëª© ì¬ë¬´ìˆ˜ì§‘ì¢…ë£Œ")
 End Sub
 
 
 
 Sub Company_Price(codes As String)
-            ' Á¾¸ñ ÁÖ°¡(StockWeek) default 10³âÄ¡ --------------------------------------------------------------------------------------------------------
-            Dim codemgr    As New CpCodeMgr    'ÄÚµå
-            Dim stprice    As New StockWeek    'ÁÖ°¡ ³¯Â¥ °Ë»ö¾ÈµÊ
+            ' ì¢…ëª© ì£¼ê°€(StockWeek) default 10ë…„ì¹˜ --------------------------------------------------------------------------------------------------------
+            Dim codemgr    As New CpCodeMgr    'ì½”ë“œ
+            Dim stprice    As New StockWeek    'ì£¼ê°€ ë‚ ì§œ ê²€ìƒ‰ì•ˆë¨
             Dim tempdate As String
             Dim tempdate2 As String
             Dim s, n  As String
             
-            Call Log(codes & "[" & codemgr.CodeToName(codes) & "] ÁÖ°¡ ¼öÁıÁß")
+            Call Log(codes & "[" & codemgr.CodeToName(codes) & "] ì£¼ê°€ ìˆ˜ì§‘ì¤‘")
             
             Call DB_Open
     
-            'ÃÖ±ÙÀÏÀÚ Á¶È¸
+            'ìµœê·¼ì¼ì ì¡°íšŒ
             sql = "SELECT MAX(REG_DATE) AS REG_DATE FROM COMPANY_PRICE WHERE COMPANY_CODE = '" & codes & "' "
             rs.CursorLocation = adUseClient
             rs.Open sql, conn, adOpenStatic, adLockOptimistic
             
             If rs.EOF Or rs.BOF Then
-                Debug.Print "DB¿¡ µî·ÏµÇÁö ¾Ê¾Ò½À´Ï´Ù.[EOF]. µî·ÏÀ» ½ÃÀÛÇÕ´Ï´Ù. "
+                Debug.Print "DBì— ë“±ë¡ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.[EOF]. ë“±ë¡ì„ ì‹œì‘í•©ë‹ˆë‹¤. "
                 tempdate = "19000101"
             Else
                 If IsNull(rs("REG_DATE")) Then
-                   Debug.Print "DB¿¡ µî·ÏµÇÁö ¾Ê¾Ò½À´Ï´Ù.[NULL]. µî·ÏÀ» ½ÃÀÛÇÕ´Ï´Ù. "
+                   Debug.Print "DBì— ë“±ë¡ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.[NULL]. ë“±ë¡ì„ ì‹œì‘í•©ë‹ˆë‹¤. "
                    tempdate = "19000101"
                 Else
                     tempdate = rs("REG_DATE")
-                    Debug.Print "ÃÖ±Ù DB µî·ÏÀÏÀÚ´Â " & tempdate & "ÀÔ´Ï´Ù. "
+                    Debug.Print "ìµœê·¼ DB ë“±ë¡ì¼ìëŠ” " & tempdate & "ì…ë‹ˆë‹¤. "
                 End If
             End If
                 
@@ -454,38 +454,38 @@ Sub Company_Price(codes As String)
                 
             List1.Clear
                           
-            stprice.SetInputValue 0, codes 'Á¾¸ñÄÚµå
+            stprice.SetInputValue 0, codes 'ì¢…ëª©ì½”ë“œ
             stprice.BlockRequest
             bFind = False
                            
-            s = "ÄÚµå  ÀÏÀÚ  ½Ã°¡  °í°¡   Àú°¡  Á¾°¡  ÀüÀÏ´ëºñ °Å·¡·®(´ÜÁÖ) °Å·¡´ë±İ  µî¶ô·ü  ¿ÜÀÎº¸À¯ ¿ÜÀÎºñÁß ±â°ü¼ø¸Å¼ö·®"
+            s = "ì½”ë“œ  ì¼ì  ì‹œê°€  ê³ ê°€   ì €ê°€  ì¢…ê°€  ì „ì¼ëŒ€ë¹„ ê±°ë˜ëŸ‰(ë‹¨ì£¼) ê±°ë˜ëŒ€ê¸ˆ  ë“±ë½ë¥   ì™¸ì¸ë³´ìœ  ì™¸ì¸ë¹„ì¤‘ ê¸°ê´€ìˆœë§¤ìˆ˜ëŸ‰"
             List1.AddItem (s)
            
-            n = stprice.GetHeaderValue(1)  '¼ö½Å°¹¼ö
+            n = stprice.GetHeaderValue(1)  'ìˆ˜ì‹ ê°¯ìˆ˜
             cnt = 0
             
-            For j = 0 To n - 1                  ' ¼ö½Å µ¥ÀÌÅÍ ¼ö¸¸Å­ ·çÇÁ¸¦ µ¼
+            For j = 0 To n - 1                  ' ìˆ˜ì‹  ë°ì´í„° ìˆ˜ë§Œí¼ ë£¨í”„ë¥¼ ë”
                     
                 tempdate2 = stprice.GetDataValue(0, j)
-                If tempdate >= tempdate2 Then 'DBº¸´Ù ¼ö½Åµ¥ÀÌÅÍ°¡ Ä¿¾ßÇÔ
+                If tempdate >= tempdate2 Then 'DBë³´ë‹¤ ìˆ˜ì‹ ë°ì´í„°ê°€ ì»¤ì•¼í•¨
                     Exit For
-                ElseIf tempdate2 = 0 Then  '0À¸·Î µé¾î¿À´Â°Å ÇÊÅÍ¸µ
+                ElseIf tempdate2 = 0 Then  '0ìœ¼ë¡œ ë“¤ì–´ì˜¤ëŠ”ê±° í•„í„°ë§
                     Exit For
                 Else
                     cnt = cnt + 1
-                    s = " '" & codes & "', "                             ' ÄÚµå
-                    s = s & " '" & stprice.GetDataValue(0, j) & "', "    ' ÀÏÀÚ
-                    s = s & " " & stprice.GetDataValue(1, j) & ", "    ' ½Ã°¡
-                    s = s & " " & stprice.GetDataValue(2, j) & ", "    ' °í°¡
-                    s = s & " " & stprice.GetDataValue(3, j) & ", "    ' Àú°¡
-                    s = s & " " & stprice.GetDataValue(4, j) & ", "    ' Á¾°¡
-                    s = s & " '" & stprice.GetDataValue(5, j) & "', "    ' ÀüÀÏ´ëºñ
-                    s = s & " " & stprice.GetDataValue(6, j) & ", "    ' °Å·¡·®
-                    s = s & " '" & stprice.GetDataValue(10, j) & "', "   ' µî¶ô·ü
-                    s = s & " '" & stprice.GetDataValue(11, j) & "', "   ' µî¶ô·ü
-                    s = s & " " & stprice.GetDataValue(7, j) & ", "       ' ¿ÜÀÎº¸À¯
-                    s = s & " '" & stprice.GetDataValue(9, j) & "', "    ' ¿ÜÀÎºñÁß
-                    s = s & " " & stprice.GetDataValue(12, j) & " "   ' ±â°ü¼ø¸Å¼ö·®
+                    s = " '" & codes & "', "                             ' ì½”ë“œ
+                    s = s & " '" & stprice.GetDataValue(0, j) & "', "    ' ì¼ì
+                    s = s & " " & stprice.GetDataValue(1, j) & ", "    ' ì‹œê°€
+                    s = s & " " & stprice.GetDataValue(2, j) & ", "    ' ê³ ê°€
+                    s = s & " " & stprice.GetDataValue(3, j) & ", "    ' ì €ê°€
+                    s = s & " " & stprice.GetDataValue(4, j) & ", "    ' ì¢…ê°€
+                    s = s & " '" & stprice.GetDataValue(5, j) & "', "    ' ì „ì¼ëŒ€ë¹„
+                    s = s & " " & stprice.GetDataValue(6, j) & ", "    ' ê±°ë˜ëŸ‰
+                    s = s & " '" & stprice.GetDataValue(10, j) & "', "   ' ë“±ë½ë¥ 
+                    s = s & " '" & stprice.GetDataValue(11, j) & "', "   ' ë“±ë½ë¥ 
+                    s = s & " " & stprice.GetDataValue(7, j) & ", "       ' ì™¸ì¸ë³´ìœ 
+                    s = s & " '" & stprice.GetDataValue(9, j) & "', "    ' ì™¸ì¸ë¹„ì¤‘
+                    s = s & " " & stprice.GetDataValue(12, j) & " "   ' ê¸°ê´€ìˆœë§¤ìˆ˜ëŸ‰
                     
                     sql = "INSERT INTO COMPANY_PRICE"
                     sql = sql & " (COMPANY_CODE, REG_DATE, OPEN_PRICE, HIGH_PRICE, LOW_PRICE, CLOSE_PRICE, "
@@ -510,19 +510,19 @@ Sub Company_Price(codes As String)
                     Else
                     
                      cnt = cnt + 1
-                     s = " '" & codes & "', "                             ' ÄÚµå
-                     s = s & " '" & stprice.GetDataValue(0, j) & "', "    ' ÀÏÀÚ
-                     s = s & " " & stprice.GetDataValue(1, j) & ", "    ' ½Ã°¡
-                     s = s & " " & stprice.GetDataValue(2, j) & ", "    ' °í°¡
-                     s = s & " " & stprice.GetDataValue(3, j) & ", "    ' Àú°¡
-                     s = s & " " & stprice.GetDataValue(4, j) & ", "    ' Á¾°¡
-                     s = s & " '" & stprice.GetDataValue(5, j) & "', "    ' ÀüÀÏ´ëºñ
-                     s = s & " " & stprice.GetDataValue(6, j) & ", "    ' °Å·¡·®
-                     s = s & " '" & stprice.GetDataValue(10, j) & "', "   ' µî¶ô·ü
-                     s = s & " '" & stprice.GetDataValue(11, j) & "', "   ' µî¶ô·ü
-                     s = s & " " & stprice.GetDataValue(7, j) & ", "       ' ¿ÜÀÎº¸À¯
-                     s = s & " '" & stprice.GetDataValue(9, j) & "', "    ' ¿ÜÀÎºñÁß
-                     s = s & " " & stprice.GetDataValue(12, j) & " "   ' ±â°ü¼ø¸Å¼ö·®
+                     s = " '" & codes & "', "                             ' ì½”ë“œ
+                     s = s & " '" & stprice.GetDataValue(0, j) & "', "    ' ì¼ì
+                     s = s & " " & stprice.GetDataValue(1, j) & ", "    ' ì‹œê°€
+                     s = s & " " & stprice.GetDataValue(2, j) & ", "    ' ê³ ê°€
+                     s = s & " " & stprice.GetDataValue(3, j) & ", "    ' ì €ê°€
+                     s = s & " " & stprice.GetDataValue(4, j) & ", "    ' ì¢…ê°€
+                     s = s & " '" & stprice.GetDataValue(5, j) & "', "    ' ì „ì¼ëŒ€ë¹„
+                     s = s & " " & stprice.GetDataValue(6, j) & ", "    ' ê±°ë˜ëŸ‰
+                     s = s & " '" & stprice.GetDataValue(10, j) & "', "   ' ë“±ë½ë¥ 
+                     s = s & " '" & stprice.GetDataValue(11, j) & "', "   ' ë“±ë½ë¥ 
+                     s = s & " " & stprice.GetDataValue(7, j) & ", "       ' ì™¸ì¸ë³´ìœ 
+                     s = s & " '" & stprice.GetDataValue(9, j) & "', "    ' ì™¸ì¸ë¹„ì¤‘
+                     s = s & " " & stprice.GetDataValue(12, j) & " "   ' ê¸°ê´€ìˆœë§¤ìˆ˜ëŸ‰
                      
                      sql = "INSERT INTO COMPANY_PRICE"
                      sql = sql & " (COMPANY_CODE, REG_DATE, OPEN_PRICE, HIGH_PRICE, LOW_PRICE, CLOSE_PRICE, "
@@ -538,7 +538,7 @@ Sub Company_Price(codes As String)
             Loop   ' DO WHILE lOOP End
             
             Call DB_Close
-            Call Log(codes & "[" & codemgr.CodeToName(codes) & "] ÁÖ°¡ ¼öÁıÁ¾·á" & "[" & cnt & "] ")
+            Call Log(codes & "[" & codemgr.CodeToName(codes) & "] ì£¼ê°€ ìˆ˜ì§‘ì¢…ë£Œ" & "[" & cnt & "] ")
                  
             Set stprice = Nothing
             Set codemgr = Nothing
@@ -546,9 +546,9 @@ End Sub
 
 Sub Company_Investors(codes As String)
             
-            'ÅõÀÚÁÖÃ¼º° Á¶È¸  --------------------------------------------------------------------------------------------------------
-            Dim stinvestor As New CpSvr7254 'ÅõÀÚÁÖÃ¼
-            Dim codemgr    As New CpCodeMgr    'ÄÚµå
+            'íˆ¬ìì£¼ì²´ë³„ ì¡°íšŒ  --------------------------------------------------------------------------------------------------------
+            Dim stinvestor As New CpSvr7254 'íˆ¬ìì£¼ì²´
+            Dim codemgr    As New CpCodeMgr    'ì½”ë“œ
             'Dim codes  As String
             
             Dim startdate As String
@@ -557,26 +557,26 @@ Sub Company_Investors(codes As String)
             Dim tempdate2 As String
             Dim s, n  As String
             
-            Call Log(codes & "[" & codemgr.CodeToName(codes) & "] ÅõÀÚÁÖÃ¼ ¼öÁıÁß ")
+            Call Log(codes & "[" & codemgr.CodeToName(codes) & "] íˆ¬ìì£¼ì²´ ìˆ˜ì§‘ì¤‘ ")
             
             Call DB_Open
             
-            'ÃÖ±ÙÀÏÀÚ Á¶È¸
+            'ìµœê·¼ì¼ì ì¡°íšŒ
             sql = "SELECT MAX(REG_DATE) AS REG_DATE FROM COMPANY_INVESTORS WHERE COMPANY_CODE = '" & codes & "' "
             rs.CursorLocation = adUseClient
     
             rs.Open sql, conn, adOpenStatic, adLockOptimistic
             
             If rs.EOF Or rs.BOF Then
-                Debug.Print "DB¿¡ µî·ÏµÇÁö ¾Ê¾Ò½À´Ï´Ù.[EOF]. µî·ÏÀ» ½ÃÀÛÇÕ´Ï´Ù. "
+                Debug.Print "DBì— ë“±ë¡ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.[EOF]. ë“±ë¡ì„ ì‹œì‘í•©ë‹ˆë‹¤. "
                 tempdate = "19000101"
             Else
                 If IsNull(rs("REG_DATE")) Then
-                   Debug.Print "DB¿¡ µî·ÏµÇÁö ¾Ê¾Ò½À´Ï´Ù.[NULL]. µî·ÏÀ» ½ÃÀÛÇÕ´Ï´Ù. "
+                   Debug.Print "DBì— ë“±ë¡ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.[NULL]. ë“±ë¡ì„ ì‹œì‘í•©ë‹ˆë‹¤. "
                    tempdate = "19000101"
                 Else
                    tempdate = rs("REG_DATE")
-                   Debug.Print "ÃÖ±Ù DB µî·ÏÀÏÀÚ´Â " & tempdate & "ÀÔ´Ï´Ù. "
+                   Debug.Print "ìµœê·¼ DB ë“±ë¡ì¼ìëŠ” " & tempdate & "ì…ë‹ˆë‹¤. "
                 End If
             End If
                 
@@ -585,25 +585,25 @@ Sub Company_Investors(codes As String)
             
             List1.Clear
             
-            startdate = "19900101"  'ÀÓ½Ã°ª
-            enddate = Format(Now, "yyyyMMdd") 'Å×½ºÆ®
+            startdate = "19900101"  'ì„ì‹œê°’
+            enddate = Format(Now, "yyyyMMdd") 'í…ŒìŠ¤íŠ¸
     
-            stinvestor.SetInputValue 0, codes 'Á¾¸ñÄÚµå
-            stinvestor.SetInputValue 1, 6 '±â°£»ç¿ëÀÚÁöÁ¤
-            stinvestor.SetInputValue 2, CLng(startdate) '½ÃÀÛÀÏÀÚ
-            stinvestor.SetInputValue 3, CLng(enddate) 'Á¾·áÀÏÀÚ
-            stinvestor.SetInputValue 4, Asc("0") '¼ø¸Å¼ö
-            stinvestor.SetInputValue 5, 0 'ÅõÀÚÀÚ ÀüÃ¼
+            stinvestor.SetInputValue 0, codes 'ì¢…ëª©ì½”ë“œ
+            stinvestor.SetInputValue 1, 6 'ê¸°ê°„ì‚¬ìš©ìì§€ì •
+            stinvestor.SetInputValue 2, CLng(startdate) 'ì‹œì‘ì¼ì
+            stinvestor.SetInputValue 3, CLng(enddate) 'ì¢…ë£Œì¼ì
+            stinvestor.SetInputValue 4, Asc("0") 'ìˆœë§¤ìˆ˜
+            stinvestor.SetInputValue 5, 0 'íˆ¬ìì ì „ì²´
             
             stinvestor.BlockRequest
             bFind = False
                             
-            s = "ÀÏÀÚ  °³ÀÎ   ¿Ü±¹ÀÎ  ±â°ü°è  ±İÀ¶ÅõÀÚ   º¸Çè    Åõ½Å   ÀºÇà  ±âÅ¸±İÀ¶   ¿¬±â±İ   ±âÅ¸¹ıÀÎ  ±âÅ¸¿ÜÀÎ  »ç¸ğÆİµå  ±¹°¡ÁöÀÚÃ¼"
+            s = "ì¼ì  ê°œì¸   ì™¸êµ­ì¸  ê¸°ê´€ê³„  ê¸ˆìœµíˆ¬ì   ë³´í—˜    íˆ¬ì‹    ì€í–‰  ê¸°íƒ€ê¸ˆìœµ   ì—°ê¸°ê¸ˆ   ê¸°íƒ€ë²•ì¸  ê¸°íƒ€ì™¸ì¸  ì‚¬ëª¨í€ë“œ  êµ­ê°€ì§€ìì²´"
             List1.AddItem (s)
             
             cnt = 0
             
-            For j = 0 To stinvestor.GetHeaderValue(1) - 1                  ' ¼ö½Å µ¥ÀÌÅÍ ¼ö¸¸Å­ ·çÇÁ¸¦ µ¼
+            For j = 0 To stinvestor.GetHeaderValue(1) - 1                  ' ìˆ˜ì‹  ë°ì´í„° ìˆ˜ë§Œí¼ ë£¨í”„ë¥¼ ë”
                 tempdate2 = stinvestor.GetDataValue(0, j)
                 If tempdate >= tempdate2 Then
                     Exit For
@@ -611,21 +611,21 @@ Sub Company_Investors(codes As String)
                     Exit For
                 Else
                     cnt = cnt + 1
-                    s = " '" & codes & "', "                             ' ÄÚµå
-                    s = s & " '" & stinvestor.GetDataValue(0, j) & "', "    ' ÀÏÀÚ
-                    s = s & " " & stinvestor.GetDataValue(1, j) & ", "    ' °³ÀÎ
-                    s = s & " " & stinvestor.GetDataValue(2, j) & ", "    ' ¿Ü±¹ÀÎ
-                    s = s & " " & stinvestor.GetDataValue(3, j) & ", "    ' ±â°ü°è
-                    s = s & " " & stinvestor.GetDataValue(4, j) & ", "    ' ±İÀ¶ÅõÀÚ
-                    s = s & " " & stinvestor.GetDataValue(5, j) & ", "    ' º¸Çè
-                    s = s & " " & stinvestor.GetDataValue(6, j) & ", "    ' Åõ½Å
-                    s = s & " " & stinvestor.GetDataValue(7, j) & ", "    ' ÀºÇà
-                    s = s & " " & stinvestor.GetDataValue(8, j) & ", "   ' ±âÅ¸±İÀ¶
-                    s = s & " " & stinvestor.GetDataValue(9, j) & ", "    ' ¿¬±â±İ
-                    s = s & " " & stinvestor.GetDataValue(10, j) & ", "    ' ±âÅ¸¹ıÀÎ13¹ø°ú ¹Ù²ñ
-                    s = s & " " & stinvestor.GetDataValue(11, j) & ", "    ' ±âÅ¸¿ÜÀÎ
-                    s = s & " " & stinvestor.GetDataValue(12, j) & ", "    ' »ç¸ğÆİµå
-                    s = s & " " & stinvestor.GetDataValue(13, j) & " "    ' ±¹°¡ÁöÀÚÃ¼
+                    s = " '" & codes & "', "                             ' ì½”ë“œ
+                    s = s & " '" & stinvestor.GetDataValue(0, j) & "', "    ' ì¼ì
+                    s = s & " " & stinvestor.GetDataValue(1, j) & ", "    ' ê°œì¸
+                    s = s & " " & stinvestor.GetDataValue(2, j) & ", "    ' ì™¸êµ­ì¸
+                    s = s & " " & stinvestor.GetDataValue(3, j) & ", "    ' ê¸°ê´€ê³„
+                    s = s & " " & stinvestor.GetDataValue(4, j) & ", "    ' ê¸ˆìœµíˆ¬ì
+                    s = s & " " & stinvestor.GetDataValue(5, j) & ", "    ' ë³´í—˜
+                    s = s & " " & stinvestor.GetDataValue(6, j) & ", "    ' íˆ¬ì‹ 
+                    s = s & " " & stinvestor.GetDataValue(7, j) & ", "    ' ì€í–‰
+                    s = s & " " & stinvestor.GetDataValue(8, j) & ", "   ' ê¸°íƒ€ê¸ˆìœµ
+                    s = s & " " & stinvestor.GetDataValue(9, j) & ", "    ' ì—°ê¸°ê¸ˆ
+                    s = s & " " & stinvestor.GetDataValue(10, j) & ", "    ' ê¸°íƒ€ë²•ì¸13ë²ˆê³¼ ë°”ë€œ
+                    s = s & " " & stinvestor.GetDataValue(11, j) & ", "    ' ê¸°íƒ€ì™¸ì¸
+                    s = s & " " & stinvestor.GetDataValue(12, j) & ", "    ' ì‚¬ëª¨í€ë“œ
+                    s = s & " " & stinvestor.GetDataValue(13, j) & " "    ' êµ­ê°€ì§€ìì²´
                 
                     sql = "INSERT INTO COMPANY_INVESTORS "
                     sql = sql & " (COMPANY_CODE, REG_DATE, PERSONAL, FOREIGNER, ORG_SUM, FIN_INVEST, INSURANCE, INVEST_TRUST, "
@@ -650,21 +650,21 @@ Sub Company_Investors(codes As String)
                         Exit Do
                     Else
                         cnt = cnt + 1
-                        s = " '" & codes & "', "                             ' ÄÚµå
-                        s = s & " '" & stinvestor.GetDataValue(0, j) & "', "    ' ÀÏÀÚ
-                        s = s & " " & stinvestor.GetDataValue(1, j) & ", "    ' °³ÀÎ
-                        s = s & " " & stinvestor.GetDataValue(2, j) & ", "    ' ¿Ü±¹ÀÎ
-                        s = s & " " & stinvestor.GetDataValue(3, j) & ", "    ' ±â°ü°è
-                        s = s & " " & stinvestor.GetDataValue(4, j) & ", "    ' ±İÀ¶ÅõÀÚ
-                        s = s & " " & stinvestor.GetDataValue(5, j) & ", "    ' º¸Çè
-                        s = s & " " & stinvestor.GetDataValue(6, j) & ", "    ' Åõ½Å
-                        s = s & " " & stinvestor.GetDataValue(7, j) & ", "    ' ÀºÇà
-                        s = s & " " & stinvestor.GetDataValue(8, j) & ", "   ' ±âÅ¸±İÀ¶
-                        s = s & " " & stinvestor.GetDataValue(9, j) & ", "    ' ¿¬±â±İ
-                        s = s & " " & stinvestor.GetDataValue(10, j) & ", "    ' ±âÅ¸¹ıÀÎ
-                        s = s & " " & stinvestor.GetDataValue(11, j) & ", "    ' ±âÅ¸¿ÜÀÎ
-                        s = s & " " & stinvestor.GetDataValue(12, j) & ", "    ' »ç¸ğÆİµå
-                        s = s & " " & stinvestor.GetDataValue(13, j) & " "    ' ±¹°¡
+                        s = " '" & codes & "', "                             ' ì½”ë“œ
+                        s = s & " '" & stinvestor.GetDataValue(0, j) & "', "    ' ì¼ì
+                        s = s & " " & stinvestor.GetDataValue(1, j) & ", "    ' ê°œì¸
+                        s = s & " " & stinvestor.GetDataValue(2, j) & ", "    ' ì™¸êµ­ì¸
+                        s = s & " " & stinvestor.GetDataValue(3, j) & ", "    ' ê¸°ê´€ê³„
+                        s = s & " " & stinvestor.GetDataValue(4, j) & ", "    ' ê¸ˆìœµíˆ¬ì
+                        s = s & " " & stinvestor.GetDataValue(5, j) & ", "    ' ë³´í—˜
+                        s = s & " " & stinvestor.GetDataValue(6, j) & ", "    ' íˆ¬ì‹ 
+                        s = s & " " & stinvestor.GetDataValue(7, j) & ", "    ' ì€í–‰
+                        s = s & " " & stinvestor.GetDataValue(8, j) & ", "   ' ê¸°íƒ€ê¸ˆìœµ
+                        s = s & " " & stinvestor.GetDataValue(9, j) & ", "    ' ì—°ê¸°ê¸ˆ
+                        s = s & " " & stinvestor.GetDataValue(10, j) & ", "    ' ê¸°íƒ€ë²•ì¸
+                        s = s & " " & stinvestor.GetDataValue(11, j) & ", "    ' ê¸°íƒ€ì™¸ì¸
+                        s = s & " " & stinvestor.GetDataValue(12, j) & ", "    ' ì‚¬ëª¨í€ë“œ
+                        s = s & " " & stinvestor.GetDataValue(13, j) & " "    ' êµ­ê°€
                     
                         sql = "INSERT INTO COMPANY_INVESTORS "
                         sql = sql & " (COMPANY_CODE, REG_DATE, PERSONAL, FOREIGNER, ORG_SUM, FIN_INVEST, INSURANCE, INVEST_TRUST, "
@@ -680,7 +680,7 @@ Sub Company_Investors(codes As String)
             Loop ' DO WHILE lOOP End
                              
             Call DB_Close
-            Call Log(codes & "[" & codemgr.CodeToName(codes) & "] ÅõÀÚÁÖÃ¼ Á¾·á" & "[" & cnt & "] ")
+            Call Log(codes & "[" & codemgr.CodeToName(codes) & "] íˆ¬ìì£¼ì²´ ì¢…ë£Œ" & "[" & cnt & "] ")
                                                      
             Set stinvestor = Nothing
             Set codemgr = Nothing
@@ -689,10 +689,10 @@ End Sub
 
 
 Sub Company_Fundamental(codes As String)
-            'Á¾¸ñ Fundamental °¡Á®¿À±â - ÀÏÀÚÁ¤º¸ ¾øÀ½.
+            'ì¢…ëª© Fundamental ê°€ì ¸ì˜¤ê¸° - ì¼ìì •ë³´ ì—†ìŒ.
                     
             Dim stfdmt     As New MarketEye    'Fundamental
-            Dim codemgr    As New CpCodeMgr    'ÄÚµå
+            Dim codemgr    As New CpCodeMgr    'ì½”ë“œ
             Dim s  As String
             Dim items() As Long
             Dim value As Variant
@@ -706,7 +706,7 @@ Sub Company_Fundamental(codes As String)
             conn.Execute (sql)
             
             
-            Call Log(codes & "[" & codemgr.CodeToName(codes) & "] Àç¹«ÁöÇ¥ ¼öÁıÁß")
+            Call Log(codes & "[" & codemgr.CodeToName(codes) & "] ì¬ë¬´ì§€í‘œ ìˆ˜ì§‘ì¤‘")
             
             List1.Clear
             
@@ -714,17 +714,17 @@ Sub Company_Fundamental(codes As String)
             hangmok = hangmok & "96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,"
             hangmok = hangmok & "112,124,125,126,127,128 "
             
-            value = Split(hangmok, ",")   '¿äÃ»Ç×¸ñ
+            value = Split(hangmok, ",")   'ìš”ì²­í•­ëª©
             ReDim items(0 To UBound(value))
             For i = 0 To UBound(value)
                 items(i) = CLng(value(i))
             Next
             
             stfdmt.SetInputValue 0, items
-            stfdmt.SetInputValue 1, codes 'Á¾¸ñÄÚµå
+            stfdmt.SetInputValue 1, codes 'ì¢…ëª©ì½”ë“œ
             stfdmt.BlockRequest
             
-            value = stfdmt.GetHeaderValue(1) 'ÇÊµå¸í
+            value = stfdmt.GetHeaderValue(1) 'í•„ë“œëª…
             
             cnt = 0
             For i = 0 To stfdmt.GetHeaderValue(2) - 1
@@ -753,7 +753,7 @@ Sub Company_Fundamental(codes As String)
                 
             Next
             Call DB_Close
-            Call Log(codes & "[" & codemgr.CodeToName(codes) & "] Àç¹«ÁöÇ¥ ¼öÁıÁ¾·á" & "[" & cnt & "] ")
+            Call Log(codes & "[" & codemgr.CodeToName(codes) & "] ì¬ë¬´ì§€í‘œ ìˆ˜ì§‘ì¢…ë£Œ" & "[" & cnt & "] ")
             
             Set stfdmt = Nothing
             Set codemgr = Nothing
@@ -762,7 +762,7 @@ End Sub
 
 
 Sub Industry_pi()
-            Call Log("-- ¾÷Á¾ ÁÖ°¡/ÅõÀÚÁÖÃ¼ ¼öÁı½ÃÀÛ")
+            Call Log("-- ì—…ì¢… ì£¼ê°€/íˆ¬ìì£¼ì²´ ìˆ˜ì§‘ì‹œì‘")
             
             Call DB_Open
             
@@ -794,37 +794,37 @@ Sub Industry_pi()
                     Call Industry_Investor(codes)
                End If
             Next
-            Call Log("-- ¾÷Á¾ ÁÖ°¡/ÅõÀÚÁÖÃ¼ ¼öÁıÁ¾·á")
+            Call Log("-- ì—…ì¢… ì£¼ê°€/íˆ¬ìì£¼ì²´ ìˆ˜ì§‘ì¢…ë£Œ")
             
 End Sub
 
 Sub Industry_Price(codes As String)
             
-            Dim codemgr    As New CpCodeMgr    'ÄÚµå
+            Dim codemgr    As New CpCodeMgr    'ì½”ë“œ
             Dim ujchart    As New CbGraph1
             Dim tempdate  As String
             Dim tempdate2 As String
             Dim s  As String
             
-            Call Log(codes & "[" & codemgr.GetIndustryName(codes) & "] ÁÖ°¡ ¼öÁıÁß")
+            Call Log(codes & "[" & codemgr.GetIndustryName(codes) & "] ì£¼ê°€ ìˆ˜ì§‘ì¤‘")
             Call DB_Open
                 
-            'ÃÖ±ÙÀÏÀÚ Á¶È¸
+            'ìµœê·¼ì¼ì ì¡°íšŒ
             sql = "SELECT MAX(REG_DATE) AS REG_DATE FROM INDUSTRY_PRICE WHERE INDUSTRY_CODE = '" & codes & "' "
             rs.CursorLocation = adUseClient
     
             rs.Open sql, conn, adOpenStatic, adLockOptimistic
             
             If rs.EOF Or rs.BOF Then
-                Debug.Print "DB¿¡ µî·ÏµÇÁö ¾Ê¾Ò½À´Ï´Ù.[EOF]. µî·ÏÀ» ½ÃÀÛÇÕ´Ï´Ù. "
+                Debug.Print "DBì— ë“±ë¡ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.[EOF]. ë“±ë¡ì„ ì‹œì‘í•©ë‹ˆë‹¤. "
                 tempdate = "19000101"
             Else
                 If IsNull(rs("REG_DATE")) Then
-                   Debug.Print "DB¿¡ µî·ÏµÇÁö ¾Ê¾Ò½À´Ï´Ù.[NULL]. µî·ÏÀ» ½ÃÀÛÇÕ´Ï´Ù. "
+                   Debug.Print "DBì— ë“±ë¡ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.[NULL]. ë“±ë¡ì„ ì‹œì‘í•©ë‹ˆë‹¤. "
                    tempdate = "19000101"
                 Else
                     tempdate = rs("REG_DATE")
-                    Debug.Print "ÃÖ±Ù DB µî·ÏÀÏÀÚ´Â " & tempdate & "ÀÔ´Ï´Ù. "
+                    Debug.Print "ìµœê·¼ DB ë“±ë¡ì¼ìëŠ” " & tempdate & "ì…ë‹ˆë‹¤. "
                 End If
             End If
                 
@@ -841,18 +841,18 @@ Sub Industry_Price(codes As String)
                 items(i) = i
             Next
                                       
-            ujchart.SetInputValue 0, "U" & codes '¾÷Á¾ÄÚµå
-            ujchart.SetInputValue 1, Asc("D")   '¿äÃ»±¸ºĞ 1Àº ±â°£, 2°¹¼ö
-            ujchart.SetInputValue 3, 2800   '°¹¼ö
-            ujchart.SetInputValue 4, Asc("1")   '1. ¼öÁ¤ÁÖ°¡
+            ujchart.SetInputValue 0, "U" & codes 'ì—…ì¢…ì½”ë“œ
+            ujchart.SetInputValue 1, Asc("D")   'ìš”ì²­êµ¬ë¶„ 1ì€ ê¸°ê°„, 2ê°¯ìˆ˜
+            ujchart.SetInputValue 3, 2800   'ê°¯ìˆ˜
+            ujchart.SetInputValue 4, Asc("1")   '1. ìˆ˜ì •ì£¼ê°€
                                               
             ujchart.BlockRequest
             bFind = False
                            
-            s = "ÀÏÀÚ  ½Ã°¡  °í°¡   Àú°¡  Á¾°¡  ÀüÀÏ´ëºñ °Å·¡·®(´ÜÁÖ) °Å·¡´ë±İ "
+            s = "ì¼ì  ì‹œê°€  ê³ ê°€   ì €ê°€  ì¢…ê°€  ì „ì¼ëŒ€ë¹„ ê±°ë˜ëŸ‰(ë‹¨ì£¼) ê±°ë˜ëŒ€ê¸ˆ "
             List1.AddItem (s)
            
-            n = ujchart.GetHeaderValue(3)  '¼ö½Å°¹¼ö
+            n = ujchart.GetHeaderValue(3)  'ìˆ˜ì‹ ê°¯ìˆ˜
                       
             cnt = 0
             
@@ -864,13 +864,13 @@ Sub Industry_Price(codes As String)
                     Exit For
                 Else
                     cnt = cnt + 1
-                    s = " '" & codes & "', "                             ' ÄÚµå
-                    s = s & " '" & ujchart.GetDataValue(0, j) & "', "    ' ÀÏÀÚ
-                    s = s & " " & ujchart.GetDataValue(1, j) & ", "    ' ½Ã°¡
-                    s = s & " " & ujchart.GetDataValue(2, j) & ", "    ' °í°¡
-                    s = s & " " & ujchart.GetDataValue(3, j) & ", "    ' Àú°¡
-                    s = s & " " & ujchart.GetDataValue(4, j) & ", "    ' Á¾°¡
-                    s = s & " " & ujchart.GetDataValue(5, j) & "  "    ' °Å·¡·®
+                    s = " '" & codes & "', "                             ' ì½”ë“œ
+                    s = s & " '" & ujchart.GetDataValue(0, j) & "', "    ' ì¼ì
+                    s = s & " " & ujchart.GetDataValue(1, j) & ", "    ' ì‹œê°€
+                    s = s & " " & ujchart.GetDataValue(2, j) & ", "    ' ê³ ê°€
+                    s = s & " " & ujchart.GetDataValue(3, j) & ", "    ' ì €ê°€
+                    s = s & " " & ujchart.GetDataValue(4, j) & ", "    ' ì¢…ê°€
+                    s = s & " " & ujchart.GetDataValue(5, j) & "  "    ' ê±°ë˜ëŸ‰
                     
                     sql = "INSERT INTO INDUSTRY_PRICE"
                     sql = sql & " (INDUSTRY_CODE, REG_DATE, OPEN_PRICE, HIGH_PRICE, LOW_PRICE, CLOSE_PRICE, VOLUME, "
@@ -895,13 +895,13 @@ Sub Industry_Price(codes As String)
                          Exit For
                     Else
                          cnt = cnt + 1
-                         s = " '" & codes & "', "                             ' ÄÚµå
-                         s = s & " '" & ujchart.GetDataValue(0, j) & "', "    ' ÀÏÀÚ
-                         s = s & " " & ujchart.GetDataValue(1, j) & ", "    ' ½Ã°¡
-                         s = s & " " & ujchart.GetDataValue(2, j) & ", "    ' °í°¡
-                         s = s & " " & ujchart.GetDataValue(3, j) & ", "    ' Àú°¡
-                         s = s & " " & ujchart.GetDataValue(4, j) & ", "    ' Á¾°¡
-                         s = s & " " & ujchart.GetDataValue(5, j) & "  "    ' °Å·¡·®
+                         s = " '" & codes & "', "                             ' ì½”ë“œ
+                         s = s & " '" & ujchart.GetDataValue(0, j) & "', "    ' ì¼ì
+                         s = s & " " & ujchart.GetDataValue(1, j) & ", "    ' ì‹œê°€
+                         s = s & " " & ujchart.GetDataValue(2, j) & ", "    ' ê³ ê°€
+                         s = s & " " & ujchart.GetDataValue(3, j) & ", "    ' ì €ê°€
+                         s = s & " " & ujchart.GetDataValue(4, j) & ", "    ' ì¢…ê°€
+                         s = s & " " & ujchart.GetDataValue(5, j) & "  "    ' ê±°ë˜ëŸ‰
                          
                          sql = "INSERT INTO INDUSTRY_PRICE"
                          sql = sql & " (INDUSTRY_CODE, REG_DATE, OPEN_PRICE, HIGH_PRICE, LOW_PRICE, CLOSE_PRICE, VOLUME, "
@@ -916,26 +916,26 @@ Sub Industry_Price(codes As String)
              Loop ' DO WHILE lOOP End
              
              Call DB_Close
-             Call Log(codes & "[" & codemgr.GetIndustryName(codes) & "] ÁÖ°¡ ¼öÁıÁ¾·á" & "[" & cnt & "] ")
+             Call Log(codes & "[" & codemgr.GetIndustryName(codes) & "] ì£¼ê°€ ìˆ˜ì§‘ì¢…ë£Œ" & "[" & cnt & "] ")
              
-             Set codemgr = Nothing    'ÄÚµå
+             Set codemgr = Nothing    'ì½”ë“œ
              Set ujchart = Nothing
             
 End Sub
 
 
 Sub Industry_Investor(codes As String)
-        'ÅõÀÚÁÖÃ¼º° Á¶È¸  --------------------------------------------------------------------------------------------------------
-            Dim codemgr    As New CpCodeMgr    'ÄÚµå
-            Dim ujinvestor As New CpSvr7223 'ÅõÀÚÁÖÃ¼
+        'íˆ¬ìì£¼ì²´ë³„ ì¡°íšŒ  --------------------------------------------------------------------------------------------------------
+            Dim codemgr    As New CpCodeMgr    'ì½”ë“œ
+            Dim ujinvestor As New CpSvr7223 'íˆ¬ìì£¼ì²´
             Dim tempdate2 As String
             Dim s, n  As String
             
-            Call Log(codes & "[" & codemgr.CodeToName(codes) & "] ÅõÀÚÁÖÃ¼ ¼öÁıÁß")
+            Call Log(codes & "[" & codemgr.CodeToName(codes) & "] íˆ¬ìì£¼ì²´ ìˆ˜ì§‘ì¤‘")
             
             Call DB_Open
     
-            'ÃÖ±ÙÀÏÀÚ Á¶È¸
+            'ìµœê·¼ì¼ì ì¡°íšŒ
             'Set rs = New ADODB.Recordset
             sql = "SELECT MAX(REG_DATE) AS REG_DATE FROM INDUSTRY_INVESTORS WHERE INDUSTRY_CODE = '" & codes & "' "
             rs.CursorLocation = adUseClient
@@ -943,15 +943,15 @@ Sub Industry_Investor(codes As String)
             rs.Open sql, conn, adOpenStatic, adLockOptimistic
             
             If rs.EOF Or rs.BOF Then
-                Debug.Print "DB¿¡ µî·ÏµÇÁö ¾Ê¾Ò½À´Ï´Ù.[EOF]. µî·ÏÀ» ½ÃÀÛÇÕ´Ï´Ù. "
+                Debug.Print "DBì— ë“±ë¡ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.[EOF]. ë“±ë¡ì„ ì‹œì‘í•©ë‹ˆë‹¤. "
                 tempdate = "19000101"
             Else
                 If IsNull(rs("REG_DATE")) Then
-                   Debug.Print "DB¿¡ µî·ÏµÇÁö ¾Ê¾Ò½À´Ï´Ù.[NULL]. µî·ÏÀ» ½ÃÀÛÇÕ´Ï´Ù. "
+                   Debug.Print "DBì— ë“±ë¡ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.[NULL]. ë“±ë¡ì„ ì‹œì‘í•©ë‹ˆë‹¤. "
                    tempdate = "19000101"
                 Else
                    tempdate = rs("REG_DATE")
-                   Debug.Print "ÃÖ±Ù DB µî·ÏÀÏÀÚ´Â " & tempdate & "ÀÔ´Ï´Ù. "
+                   Debug.Print "ìµœê·¼ DB ë“±ë¡ì¼ìëŠ” " & tempdate & "ì…ë‹ˆë‹¤. "
                 End If
             End If
                 
@@ -960,13 +960,13 @@ Sub Industry_Investor(codes As String)
             
             List1.Clear
             
-            ujinvestor.SetInputValue 0, Asc("4") 'ÀÏÀÚº°
-            ujinvestor.SetInputValue 1, codes    '¾÷Á¾ÄÚµå
+            ujinvestor.SetInputValue 0, Asc("4") 'ì¼ìë³„
+            ujinvestor.SetInputValue 1, codes    'ì—…ì¢…ì½”ë“œ
             
             ujinvestor.BlockRequest
             bFind = False
                             
-            s = "ÀÏÀÚ  °³ÀÎ   ¿Ü±¹ÀÎ  ±â°ü°è  ±İÀ¶ÅõÀÚ   º¸Çè    Åõ½Å   ÀºÇà  ±âÅ¸±İÀ¶   ¿¬±â±İ   ±âÅ¸¹ıÀÎ  ±âÅ¸¿ÜÀÎ  »ç¸ğÆİµå  ±¹°¡ÁöÀÚÃ¼"
+            s = "ì¼ì  ê°œì¸   ì™¸êµ­ì¸  ê¸°ê´€ê³„  ê¸ˆìœµíˆ¬ì   ë³´í—˜    íˆ¬ì‹    ì€í–‰  ê¸°íƒ€ê¸ˆìœµ   ì—°ê¸°ê¸ˆ   ê¸°íƒ€ë²•ì¸  ê¸°íƒ€ì™¸ì¸  ì‚¬ëª¨í€ë“œ  êµ­ê°€ì§€ìì²´"
             List1.AddItem (s)
             
             cnt = 0
@@ -981,21 +981,21 @@ Sub Industry_Investor(codes As String)
                     Exit For
                 Else
                     cnt = cnt + 1
-                    s = " '" & codes & "', "                             ' ÄÚµå
-                    s = s & " '" & tempdate2 & "', "    ' ÀÏÀÚ
-                    s = s & " " & ujinvestor.GetDataValue(1, j) & ", "    ' °³ÀÎ
-                    s = s & " " & ujinvestor.GetDataValue(2, j) & ", "    ' ¿Ü±¹ÀÎ
-                    s = s & " " & ujinvestor.GetDataValue(3, j) & ", "    ' ±â°ü°è
-                    s = s & " " & ujinvestor.GetDataValue(4, j) & ", "    ' ±İÀ¶ÅõÀÚ
-                    s = s & " " & ujinvestor.GetDataValue(5, j) & ", "    ' º¸Çè
-                    s = s & " " & ujinvestor.GetDataValue(6, j) & ", "    ' Åõ½Å
-                    s = s & " " & ujinvestor.GetDataValue(7, j) & ", "    ' ÀºÇà
-                    s = s & " " & ujinvestor.GetDataValue(8, j) & ", "   ' ±âÅ¸±İÀ¶
-                    s = s & " " & ujinvestor.GetDataValue(9, j) & ", "    ' ¿¬±â±İ
-                    s = s & " " & ujinvestor.GetDataValue(10, j) & ", "    ' ±âÅ¸¹ıÀÎ
-                    s = s & " " & ujinvestor.GetDataValue(11, j) & ", "    ' ±âÅ¸¿ÜÀÎ
-                    s = s & " " & ujinvestor.GetDataValue(12, j) & ", "    ' »ç¸ğÆİµå
-                    s = s & " " & ujinvestor.GetDataValue(13, j) & " "    ' ±¹°¡
+                    s = " '" & codes & "', "                             ' ì½”ë“œ
+                    s = s & " '" & tempdate2 & "', "    ' ì¼ì
+                    s = s & " " & ujinvestor.GetDataValue(1, j) & ", "    ' ê°œì¸
+                    s = s & " " & ujinvestor.GetDataValue(2, j) & ", "    ' ì™¸êµ­ì¸
+                    s = s & " " & ujinvestor.GetDataValue(3, j) & ", "    ' ê¸°ê´€ê³„
+                    s = s & " " & ujinvestor.GetDataValue(4, j) & ", "    ' ê¸ˆìœµíˆ¬ì
+                    s = s & " " & ujinvestor.GetDataValue(5, j) & ", "    ' ë³´í—˜
+                    s = s & " " & ujinvestor.GetDataValue(6, j) & ", "    ' íˆ¬ì‹ 
+                    s = s & " " & ujinvestor.GetDataValue(7, j) & ", "    ' ì€í–‰
+                    s = s & " " & ujinvestor.GetDataValue(8, j) & ", "   ' ê¸°íƒ€ê¸ˆìœµ
+                    s = s & " " & ujinvestor.GetDataValue(9, j) & ", "    ' ì—°ê¸°ê¸ˆ
+                    s = s & " " & ujinvestor.GetDataValue(10, j) & ", "    ' ê¸°íƒ€ë²•ì¸
+                    s = s & " " & ujinvestor.GetDataValue(11, j) & ", "    ' ê¸°íƒ€ì™¸ì¸
+                    s = s & " " & ujinvestor.GetDataValue(12, j) & ", "    ' ì‚¬ëª¨í€ë“œ
+                    s = s & " " & ujinvestor.GetDataValue(13, j) & " "    ' êµ­ê°€
                     
                     sql = "INSERT INTO INDUSTRY_INVESTORS "
                     sql = sql & " (INDUSTRY_CODE, REG_DATE, PERSONAL, FOREIGNER, ORG_SUM, FIN_INVEST, INSURANCE, INVEST_TRUST, "
@@ -1020,21 +1020,21 @@ Sub Industry_Investor(codes As String)
                         Exit Do
                     Else
                         cnt = cnt + 1
-                        s = " '" & codes & "', "                             ' ÄÚµå
-                        s = s & " '" & tempdate2 & "', "    ' ÀÏÀÚ
-                        s = s & " " & ujinvestor.GetDataValue(1, j) & ", "    ' °³ÀÎ
-                        s = s & " " & ujinvestor.GetDataValue(2, j) & ", "    ' ¿Ü±¹ÀÎ
-                        s = s & " " & ujinvestor.GetDataValue(3, j) & ", "    ' ±â°ü°è
-                        s = s & " " & ujinvestor.GetDataValue(4, j) & ", "    ' ±İÀ¶ÅõÀÚ
-                        s = s & " " & ujinvestor.GetDataValue(5, j) & ", "    ' º¸Çè
-                        s = s & " " & ujinvestor.GetDataValue(6, j) & ", "    ' Åõ½Å
-                        s = s & " " & ujinvestor.GetDataValue(7, j) & ", "    ' ÀºÇà
-                        s = s & " " & ujinvestor.GetDataValue(8, j) & ", "   ' ±âÅ¸±İÀ¶
-                        s = s & " " & ujinvestor.GetDataValue(9, j) & ", "    ' ¿¬±â±İ
-                        s = s & " " & ujinvestor.GetDataValue(10, j) & ", "    ' ±âÅ¸¹ıÀÎ
-                        s = s & " " & ujinvestor.GetDataValue(11, j) & ", "    ' ±âÅ¸¿ÜÀÎ
-                        s = s & " " & ujinvestor.GetDataValue(12, j) & ", "    ' »ç¸ğÆİµå
-                        s = s & " " & ujinvestor.GetDataValue(13, j) & " "    ' ±¹°¡
+                        s = " '" & codes & "', "                             ' ì½”ë“œ
+                        s = s & " '" & tempdate2 & "', "    ' ì¼ì
+                        s = s & " " & ujinvestor.GetDataValue(1, j) & ", "    ' ê°œì¸
+                        s = s & " " & ujinvestor.GetDataValue(2, j) & ", "    ' ì™¸êµ­ì¸
+                        s = s & " " & ujinvestor.GetDataValue(3, j) & ", "    ' ê¸°ê´€ê³„
+                        s = s & " " & ujinvestor.GetDataValue(4, j) & ", "    ' ê¸ˆìœµíˆ¬ì
+                        s = s & " " & ujinvestor.GetDataValue(5, j) & ", "    ' ë³´í—˜
+                        s = s & " " & ujinvestor.GetDataValue(6, j) & ", "    ' íˆ¬ì‹ 
+                        s = s & " " & ujinvestor.GetDataValue(7, j) & ", "    ' ì€í–‰
+                        s = s & " " & ujinvestor.GetDataValue(8, j) & ", "   ' ê¸°íƒ€ê¸ˆìœµ
+                        s = s & " " & ujinvestor.GetDataValue(9, j) & ", "    ' ì—°ê¸°ê¸ˆ
+                        s = s & " " & ujinvestor.GetDataValue(10, j) & ", "    ' ê¸°íƒ€ë²•ì¸
+                        s = s & " " & ujinvestor.GetDataValue(11, j) & ", "    ' ê¸°íƒ€ì™¸ì¸
+                        s = s & " " & ujinvestor.GetDataValue(12, j) & ", "    ' ì‚¬ëª¨í€ë“œ
+                        s = s & " " & ujinvestor.GetDataValue(13, j) & " "    ' êµ­ê°€
                         
                         sql = "INSERT INTO INDUSTRY_INVESTORS "
                         sql = sql & " (INDUSTRY_CODE, REG_DATE, PERSONAL, FOREIGNER, ORG_SUM, FIN_INVEST, INSURANCE, INVEST_TRUST, "
@@ -1050,11 +1050,11 @@ Sub Industry_Investor(codes As String)
             Loop ' DO WHILE lOOP End
             
             Call DB_Close
-            Call Log(codes & "[" & codemgr.CodeToName(codes) & "] ÅõÀÚÁÖÃ¼ ¼öÁıÁ¾·á" & "[" & cnt & "] ")
+            Call Log(codes & "[" & codemgr.CodeToName(codes) & "] íˆ¬ìì£¼ì²´ ìˆ˜ì§‘ì¢…ë£Œ" & "[" & cnt & "] ")
             
             
-            Set codemgr = Nothing    'ÄÚµå
-            Set ujinvestor = Nothing 'ÅõÀÚÁÖÃ¼
+            Set codemgr = Nothing    'ì½”ë“œ
+            Set ujinvestor = Nothing 'íˆ¬ìì£¼ì²´
             
 End Sub
 
@@ -1100,14 +1100,14 @@ Sub Theme_company()
                 Call Theme_company_1(codes)
                End If
             Next
-            Call Log("-- Å×¸¶ Á¾¸ñ ¼öÁıÁ¾·á")
+            Call Log("-- í…Œë§ˆ ì¢…ëª© ìˆ˜ì§‘ì¢…ë£Œ")
 
 End Sub
 
 Sub Theme_company_1(themecode)
-            'Å×¸¶ Á¾¸ñ °¡Á®¿À±â - ÀÏÀÚÁ¤º¸ ¾øÀ½.
+            'í…Œë§ˆ ì¢…ëª© ê°€ì ¸ì˜¤ê¸° - ì¼ìì •ë³´ ì—†ìŒ.
                     
-            Dim incpsvr8561T    As New CpSvr8561T    'ÄÚµå
+            Dim incpsvr8561T    As New CpSvr8561T    'ì½”ë“œ
             
             Dim s  As String
             Dim cp As String
@@ -1116,7 +1116,7 @@ Sub Theme_company_1(themecode)
             
             Call DB_Open
             
-            Call Log("Å×¸¶ Á¾¸ñ ¼öÁıÁß")
+            Call Log("í…Œë§ˆ ì¢…ëª© ìˆ˜ì§‘ì¤‘")
             
             List1.Clear
             bFind = False
@@ -1168,7 +1168,7 @@ Sub Theme_company_1(themecode)
             Loop   ' DO WHILE lOOP End
             
             Call DB_Close
-            Call Log("Å×¸¶ÄÚµå  ¼öÁıÁ¾·á")
+            Call Log("í…Œë§ˆì½”ë“œ  ìˆ˜ì§‘ì¢…ë£Œ")
             
             Set incpsvr8561T = Nothing
             
@@ -1178,9 +1178,9 @@ End Sub
 
 
 
-'------------------------- ÀÌÇÏ ÄÚµå¼º -------------------------------------------------------
+'------------------------- ì´í•˜ ì½”ë“œì„± -------------------------------------------------------
 Sub Industry_Code()
-            Call Log("Àü ¾÷Á¾ÄÚµå ¼öÁı½ÃÀÛ")
+            Call Log("ì „ ì—…ì¢…ì½”ë“œ ìˆ˜ì§‘ì‹œì‘")
             Call DB_Open
             
             Dim codemgr As New CpCodeMgr
@@ -1188,7 +1188,7 @@ Sub Industry_Code()
             Dim s, n
             
             
-            'KOSPIÄÚµå, ¸í °¡Á®¿À±â
+            'KOSPIì½”ë“œ, ëª… ê°€ì ¸ì˜¤ê¸°
             codes = codemgr.GetIndustryList()
             
             sql = "DELETE FROM INDUSTRY  "
@@ -1212,7 +1212,7 @@ Sub Industry_Code()
                 List1.AddItem s
             Next
             
-            'KOSDAQÄÚµå, ¸í °¡Á®¿À±â
+            'KOSDAQì½”ë“œ, ëª… ê°€ì ¸ì˜¤ê¸°
             
             codes = codemgr.GetKosdaqIndustry1List()
             
@@ -1233,7 +1233,7 @@ Sub Industry_Code()
                 List1.AddItem s
             Next
             
-            'KOSDAQÄÚµå, ¸í °¡Á®¿À±â
+            'KOSDAQì½”ë“œ, ëª… ê°€ì ¸ì˜¤ê¸°
             codes = codemgr.GetKosdaqIndustry2List()
             
                    
@@ -1258,20 +1258,20 @@ Sub Industry_Code()
             Set codes = Nothing
             
             Call DB_Close
-            Call Log("[" & cnt & "] Àü ¾÷Á¾ÄÚµå ¼öÁı³¡")
+            Call Log("[" & cnt & "] ì „ ì—…ì¢…ì½”ë“œ ìˆ˜ì§‘ë")
 
 End Sub
 
 
 Sub Company_Code()
-            Call Log("Àü Á¾¸ñÄÚµå ¼öÁı½ÃÀÛ")
+            Call Log("ì „ ì¢…ëª©ì½”ë“œ ìˆ˜ì§‘ì‹œì‘")
             Call DB_Open
             
             Dim codemgr As New CpCodeMgr
             Dim codes As Variant
             Dim s, n
             
-            'KOSPIÁ¾¸ñÄÚµå, ¸í °¡Á®¿À±â
+            'KOSPIì¢…ëª©ì½”ë“œ, ëª… ê°€ì ¸ì˜¤ê¸°
             codes = codemgr.GetStockListByMarket(1)
                 
             sql = "DELETE FROM COMPANY  "
@@ -1301,7 +1301,7 @@ Sub Company_Code()
                 List1.AddItem s
             Next
             
-            'KOSDAQÁ¾¸ñÄÚµå, ¸í °¡Á®¿À±â
+            'KOSDAQì¢…ëª©ì½”ë“œ, ëª… ê°€ì ¸ì˜¤ê¸°
             
             codes = codemgr.GetStockListByMarket(2)
             
@@ -1360,14 +1360,14 @@ Sub Company_Code()
             Set codes = Nothing
             
             Call DB_Close
-            Call Log("[" & cnt & "] Àü Á¾¸ñÄÚµå ¼öÁı³¡")
+            Call Log("[" & cnt & "] ì „ ì¢…ëª©ì½”ë“œ ìˆ˜ì§‘ë")
 
 End Sub
 
 Sub Theme_Code()
-            'Å×¸¶ÄÚµå °¡Á®¿À±â - ÀÏÀÚÁ¤º¸ ¾øÀ½.
+            'í…Œë§ˆì½”ë“œ ê°€ì ¸ì˜¤ê¸° - ì¼ìì •ë³´ ì—†ìŒ.
                     
-            Dim incpsvr8561    As New CpSvr8561    'ÄÚµå
+            Dim incpsvr8561    As New CpSvr8561    'ì½”ë“œ
             Dim s  As String
             Dim regdate As String
             regdate = Format(Now, "yyyyMMdd")
@@ -1378,7 +1378,7 @@ Sub Theme_Code()
             conn.Execute (sql)
             
             
-            Call Log("Å×¸¶ ÄÚµå ¼öÁıÁß")
+            Call Log("í…Œë§ˆ ì½”ë“œ ìˆ˜ì§‘ì¤‘")
             
             List1.Clear
             incpsvr8561.BlockRequest
@@ -1421,7 +1421,7 @@ Sub Theme_Code()
             Loop   ' DO WHILE lOOP End
             
             Call DB_Close
-            Call Log("Å×¸¶ÄÚµå  ¼öÁıÁ¾·á")
+            Call Log("í…Œë§ˆì½”ë“œ  ìˆ˜ì§‘ì¢…ë£Œ")
             
             Set incpsvr8561 = Nothing
             
